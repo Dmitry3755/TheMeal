@@ -11,3 +11,12 @@ fun CategoriesApiResponse.toCategories(): Categories {
         description = this.description
     )
 }
+
+fun Categories.toCategoriesApiResponse(): CategoriesApiResponse {
+    return CategoriesApiResponse(
+        id = this.id,
+        name = this.name,
+        thumb = this.thumb,
+        description = this.description
+    )
+}

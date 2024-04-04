@@ -10,6 +10,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.themeal.ui.navigation.NavGraph
 import com.example.themeal.ui.screen.NavBarScreen
 import com.example.themeal.ui.theme.TheMealTheme
+import com.example.themeal.view_models.CategoriesViewModel
 import com.example.themeal.view_models.MealViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,12 +18,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val mealViewModel: MealViewModel by viewModels()
+    private val categoriesViewModel: CategoriesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             TheMealTheme {
-                NavBarScreen(mealViewModel)
+                NavBarScreen(mealViewModel, categoriesViewModel)
             }
         }
     }
@@ -34,7 +36,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun GreetingPreview() {
         TheMealTheme {
-            NavBarScreen(hiltViewModel())
+            NavBarScreen(hiltViewModel(), hiltViewModel())
         }
     }
 }

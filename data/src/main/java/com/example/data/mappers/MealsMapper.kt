@@ -1,8 +1,6 @@
 package com.example.data.mappers
 
-import com.example.data.entities.CategoriesApiResponse
 import com.example.data.entities.MealsApiResponse
-import com.example.domain.entities.Categories
 import com.example.domain.entities.Meals
 
 fun MealsApiResponse.toMeals(): Meals {
@@ -60,6 +58,64 @@ fun MealsApiResponse.toMeals(): Meals {
             strMeasure19,
             strMeasure20
         ),
+        source = this.source,
+        imageSource = this.imageSource,
+        creativeCommonsConfirmed = this.creativeCommonsConfirmed,
+        dateModified = this.dateModified
+    )
+}
+
+fun Meals.toMealsApiResponse(): MealsApiResponse {
+    return MealsApiResponse(
+        id = this.id,
+        name = this.name,
+        drinkAlternate = this.drinkAlternate,
+        nameCategory = this.nameCategory,
+        area = this.area,
+        instructions = this.instructions,
+        thumb = this.thumb,
+        tags = this.tags,
+        youTubeLink = this.youTubeLink,
+        strIngredient1 = this.ingredientList[0],
+        strIngredient2 = this.ingredientList[1],
+        strIngredient3 = this.ingredientList[2],
+        strIngredient4 = this.ingredientList[3],
+        strIngredient5 = this.ingredientList[4],
+        strIngredient6 = this.ingredientList[5],
+        strIngredient7 = this.ingredientList[6],
+        strIngredient8 = this.ingredientList[7],
+        strIngredient9 = this.ingredientList[8],
+        strIngredient10 = this.ingredientList[9],
+        strIngredient11 = this.ingredientList[10],
+        strIngredient12 = this.ingredientList[11],
+        strIngredient13 = this.ingredientList[12],
+        strIngredient14 = this.ingredientList[13],
+        strIngredient15 = this.ingredientList[14],
+        strIngredient16 = this.ingredientList[15],
+        strIngredient17 = this.ingredientList[16],
+        strIngredient18 = this.ingredientList[17],
+        strIngredient19 = this.ingredientList[18],
+        strIngredient20 = this.ingredientList[19],
+        strMeasure1 = this.measureList[0],
+        strMeasure2 = this.measureList[1],
+        strMeasure3 = this.measureList[2],
+        strMeasure4 = this.measureList[3],
+        strMeasure5 = this.measureList[4],
+        strMeasure6 = this.measureList[5],
+        strMeasure7 = this.measureList[6],
+        strMeasure8 = this.measureList[7],
+        strMeasure9 = this.measureList[8],
+        strMeasure10 = this.measureList[9],
+        strMeasure11 = this.measureList[10],
+        strMeasure12 = this.measureList[11],
+        strMeasure13 = this.measureList[12],
+        strMeasure14 = this.measureList[13],
+        strMeasure15 = this.measureList[14],
+        strMeasure16 = this.measureList[15],
+        strMeasure17 = this.measureList[16],
+        strMeasure18 = this.measureList[17],
+        strMeasure19 = this.measureList[18],
+        strMeasure20 = this.measureList[19],
         source = this.source,
         imageSource = this.imageSource,
         creativeCommonsConfirmed = this.creativeCommonsConfirmed,

@@ -1,15 +1,16 @@
 package com.example.themeal.ui.components
 
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
+import androidx.compose.foundation.background
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
@@ -26,32 +27,38 @@ fun BottomBarNavigation(navController: NavController) {
         BottomNavigationElement.BasketSceen
     )
 
-    BottomNavigation(
-        backgroundColor = MaterialTheme.colorScheme.onBackground,
+    NavigationBar(
+        modifier = Modifier.background(color = MaterialTheme.colorScheme.onBackground),
         contentColor = MaterialTheme.colorScheme.outline,
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
         navigationItems.forEach { item ->
-            BottomNavigationItem(
-                icon = { Icon(painterResource(id = item.icon), contentDescription = item.title) },
-                label = {
-                    Text(
-                        text = item.title, style = MaterialTheme.typography.labelMedium,
-                        color = if (currentRoute == item.route) {
-                            MaterialTheme.colorScheme.onSecondary
-                        } else {
-                            MaterialTheme.colorScheme.outline
-                        }
+            NavigationBarItem(
+                icon = {
+                    Icon(
+                        painterResource(id = item.icon),
+                        contentDescription = item.title
                     )
                 },
-                selectedContentColor = MaterialTheme.colorScheme.onSecondary,
-                unselectedContentColor = MaterialTheme.colorScheme.outline,
+                label = {
+                    Text(
+                        text = item.title, style = MaterialTheme.typography.labelMedium
+                    )
+                },
+                colors = NavigationBarItemDefaults.colors(
+                    selectedTextColor = MaterialTheme.colorScheme.onSecondary,
+                    selectedIconColor = MaterialTheme.colorScheme.onSecondary,
+                    disabledTextColor = MaterialTheme.colorScheme.outline,
+                    disabledIconColor = MaterialTheme.colorScheme.outline,
+                    unselectedTextColor = MaterialTheme.colorScheme.outline,
+                    unselectedIconColor = MaterialTheme.colorScheme.outline,
+                    indicatorColor = Color.Transparent
+                ),
                 alwaysShowLabel = true,
                 selected = currentRoute == item.route,
                 onClick = {
                     navController.navigate(item.route) {
-
                         navController.graph.startDestinationRoute?.let { route ->
                             popUpTo(route) {
                                 saveState = true
@@ -64,7 +71,6 @@ fun BottomBarNavigation(navController: NavController) {
             )
         }
     }
-
 }
 
 @Preview

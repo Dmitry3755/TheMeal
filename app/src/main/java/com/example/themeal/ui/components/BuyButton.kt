@@ -1,8 +1,8 @@
 package com.example.themeal.ui.components
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.material.OutlinedButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
@@ -10,13 +10,14 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun BuyButton(
-    onClick: () -> Unit,
+    onClick: () -> Unit
 ) {
     OutlinedButton(
         border = BorderStroke(
             1.dp,
             MaterialTheme.colorScheme.onSecondary
         ),
+        shape = MaterialTheme.shapes.extraSmall,
         onClick = onClick
     ) {
         Text(
@@ -29,5 +30,5 @@ fun BuyButton(
 @Preview
 @Composable
 fun BuyButtonPreview() {
-    BuyButton({})
+    BuyButton { }
 }

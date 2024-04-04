@@ -10,10 +10,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.themeal.ui.components.BottomBarNavigation
 import com.example.themeal.ui.navigation.NavGraph
+import com.example.themeal.view_models.CategoriesViewModel
 import com.example.themeal.view_models.MealViewModel
 
 @Composable
-fun NavBarScreen(mealViewModel : MealViewModel) {
+fun NavBarScreen(mealViewModel: MealViewModel, categoriesViewModel: CategoriesViewModel) {
     val bottomNavigationNavController = rememberNavController()
     Scaffold(
         bottomBar = { BottomBarNavigation(bottomNavigationNavController) },
@@ -21,7 +22,7 @@ fun NavBarScreen(mealViewModel : MealViewModel) {
             Box(
                 modifier = Modifier.padding(padding)
             ) {
-                NavGraph(bottomNavigationNavController, mealViewModel)
+                NavGraph(bottomNavigationNavController, mealViewModel, categoriesViewModel)
             }
         }
     )
@@ -30,5 +31,5 @@ fun NavBarScreen(mealViewModel : MealViewModel) {
 @Preview
 @Composable
 fun NavBarPreview() {
-    NavBarScreen(hiltViewModel())
+    NavBarScreen(hiltViewModel(), hiltViewModel())
 }

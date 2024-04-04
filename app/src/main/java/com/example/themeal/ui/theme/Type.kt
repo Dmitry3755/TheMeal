@@ -11,6 +11,8 @@ import com.example.themeal.R
 
 private val Roboto = FontFamily(
     Font(R.font.roboto_thin),
+    Font(R.font.roboto_medium, FontWeight.Medium),
+    Font(R.font.roboto_bold, FontWeight.Bold),
 )
 
 private val SfUiDisplay = FontFamily(
@@ -28,13 +30,19 @@ val Typography = Typography(
 
     bodyLarge = TextStyle(
         fontFamily = Roboto,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Medium,
         fontSize = 16.sp,
         lineHeight = 18.75.sp,
     ),
     bodyMedium = TextStyle(
         fontFamily = SfUiDisplay,
         fontWeight = FontWeight.Normal,
+        fontSize = 14.sp,
+        lineHeight = 16.71.sp,
+    ),
+    displayMedium = TextStyle(
+        fontFamily = SfUiDisplay,
+        fontWeight = FontWeight.Bold,
         fontSize = 13.sp,
         lineHeight = 15.51.sp,
     ),
