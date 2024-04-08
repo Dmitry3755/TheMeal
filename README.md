@@ -11,6 +11,6 @@
 <h3>Описание</h3>
 <div>
   
-![TheMeals](https://github.com/Dmitry3755/TheMeal/assets/96525915/1b023c5a-f329-454c-8c79-53ab6c145c4e)
+![TheMeal](https://github.com/Dmitry3755/TheMeal/assets/96525915/9e1aebb7-fe34-44f5-82a4-eb7860fed57f)
 
 </div>
